@@ -31,7 +31,7 @@ void loop()
       debouncing = true;  //flag that debouncing in progress
     }    //end state change check
     
-    if (currentMillis - debncStrtMillis >= debncPeriod)  //if the debounce period has elapsed
+    if (currentMillis - debncStrtMillis <= debncPeriod)  //if the debounce period has elapsed
     {
       if (debouncing == true)    //debouncing taking place
         {

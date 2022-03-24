@@ -1,12 +1,12 @@
 import socket
+UDP_PORT = 3333
 
-UDP_IP = "192.168.43.225"
-UDP_PORT = 5005
+sock = socket.socket(socket.AF_INET,  # Internet
+                     socket.SOCK_DGRAM)  # UDP
 
-sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
-sock.bind((UDP_IP, UDP_PORT))
+sock.bind(('', UDP_PORT)) # this is the line throwing the error
 
+# sock.setblocking(0)
 while True:
-    data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-    print("received message: %s" % data)
+    data, address = sock.recvfrom(4096)
+    print("received message:", data)
